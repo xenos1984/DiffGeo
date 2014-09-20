@@ -51,6 +51,7 @@ IntProd::usage = "IntProd[\[Omega], X, \[Ellipsis]] calculates the interior prod
 TensProd::usage = "TensProd[S, T, \[Ellipsis]] calculates the tensor product \!\(S \[CircleTimes] T \[CircleTimes] \[Ellipsis]\) of tensors \!\(S, T, \[Ellipsis]\).";
 
 DiffGeo::diffmf = "Arguments of `1` are not defined on the same manifold.";
+DiffGeo::novb = "`1` works only on vector bundles, `2` is not a vector bundle.";
 
 EndPackage[];
 
@@ -80,6 +81,7 @@ Get["DiffGeo`TotalSpace`"];
 Get["DiffGeo`TangentBundle`"];
 Get["DiffGeo`CotangentBundle`"];
 Get["DiffGeo`ExtPowBundle`"];
+Get["DiffGeo`TensPowBundle`"];
 Get["DiffGeo`IntProd`"];
 Get["DiffGeo`ExtProd`"];
 Get["DiffGeo`ExtDer`"];

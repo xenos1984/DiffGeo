@@ -11,5 +11,11 @@ Format[TotalSpace[ExtPowBundle[TangentBundle[m_], n_]]] := Prefix[{m}, Prefix[{"
 
 Format[TotalSpace[ExtPowBundle[CotangentBundle[m_], n_]]] := Prefix[{m}, Prefix[{Superscript["\[DoubleStruckCapitalT]", "*"]}, Superscript["\[CapitalLambda]", n]]];
 
+Format[TotalSpace[TensPowBundle[b_, n_]]] := Prefix[{TotalSpace[b]}, Superscript["\[CircleTimes]", n]];
+
+Format[TotalSpace[TensPowBundle[TangentBundle[m_], n_]]] := Prefix[{m}, Prefix[{"\[DoubleStruckCapitalT]"}, Superscript["\[CircleTimes]", n]]];
+
+Format[TotalSpace[TensPowBundle[CotangentBundle[m_], n_]]] := Prefix[{m}, Prefix[{Superscript["\[DoubleStruckCapitalT]", "*"]}, Superscript["\[CircleTimes]", n]]];
+
 End[];
 EndPackage[];

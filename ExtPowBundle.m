@@ -7,9 +7,7 @@ Format[ExtPowBundle[TangentBundle[m_], n_]] := Infix[{Prefix[{m}, Prefix[{"\[Dou
 
 Format[ExtPowBundle[CotangentBundle[m_], n_]] := Infix[{Prefix[{m}, Prefix[{Superscript["\[DoubleStruckCapitalT]", "*"]}, Superscript["\[CapitalLambda]", n]]], m}, "\[RightArrow]"];
 
-ExtPowBundle::novb = "ExtPowBundle works only on vector bundles, `1` is not a vector bundle.";
-
-ExtPowBundle[b_ /; Not[VectBundleQ[b]], n_] := Message[ExtPowBundle::novb, b];
+ExtPowBundle[b_ /; Not[VectBundleQ[b]], n_] := Message[DiffGeo::novb, ExtPowBundle, b];
 
 ExtPowBundle[b_ /; VectBundleQ[b], 1] := b;
 
