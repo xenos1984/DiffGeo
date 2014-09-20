@@ -1,0 +1,93 @@
+Objects and their properties
+
+Bundle -> Base space, total space, fiber space, bundle map
+	Vector bundle
+	Principal bundle -> Structure group?
+		Frame bundle
+Manifold -> Tangent bundle, cotangent bundle
+Mapping -> Domain, codomain
+	Section -> Bundle
+		Tensor field -> Tensor structure
+			Scalar field
+			Vector field
+			Differential form -> Degree
+				Volume form -> Divergence
+			Metric -> Inverse metric, musical isomorphisms, Hodge star, gradient, Levi-Civita connection, volume form
+		Frame, Coframe
+		Connection
+VectorSpace?
+Group?
+Field?
+
+----
+
+Object types:
+
+	Manifold
+		ManifoldQ[x]
+		DefManifold[m, dim]
+	Bundle
+		BundleQ[x]
+		DefBundle[x, base, ?]
+	Section of a bundle (includes vector fields, forms, tensor fields)
+		SectionQ[x]
+		DefSection[x, b]
+	Mapping between manifolds
+		MappingQ[x]
+		DefMapping[x, from, to]
+
+Standard objects:
+
+	Tangent and cotangent bundle of a manifold
+		TangentBundle[mf]
+		CotangentBundle[mf]
+	Tensor and exterior product bundles
+		TensProdBundle[b1, b2, ...]
+		TensPowBundle[b, n]
+		ExtPowBundle[b, n]
+
+Object information:
+
+	Base space of a bundle
+		BaseSpace[b]
+	Total space of a bundle
+		TotalSpace[b]
+	Bundle map of a bundle
+		BundleMap[b]
+	Domain and codomain of a mapping
+		Domain[f]
+		Codomain[f]
+	Rank of a tensor field
+		Rank[t]
+	Dimension of a manifold
+		Dim[mf]
+
+Geometric operations:
+
+	Pullback and pushforward of / along mappings
+		Pullback[f]
+		Pushforward[f]
+	Exterior product
+		ExtProd[f1, f2, ...]
+	Tensor product
+		TensProd[t1, t2, ...]
+	Interior product
+		IntProd[form, v1, v2, ...]
+	Exterior derivative
+		ExtDer[form]
+	Lie derivative
+		LieDer[tens, v1, v2, ...]
+	Lie bracket
+		LieBr[v1, v2]
+
+Special objects:
+
+	Metric
+	Frame
+	Coframe
+	Connection
+	Volume form
+
+Coordinates:
+
+Indices:
