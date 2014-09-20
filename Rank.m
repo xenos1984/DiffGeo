@@ -7,6 +7,8 @@ brank[_CotangentBundle] := {0, 1};
 
 brank[x_ExtPowBundle] := brank[x[[1]]] * x[[2]];
 
+brank[x_SymPowBundle] := brank[x[[1]]] * x[[2]];
+
 brank[x_TensPowBundle] := brank[x[[1]]] * x[[2]];
 
 brank[x_TensProdBundle] := Plus @@ (brank /@ (List @@ x));

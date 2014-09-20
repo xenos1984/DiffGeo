@@ -7,6 +7,8 @@ VectBundleQ[_CotangentBundle] := True;
 
 VectBundleQ[_ExtPowBundle] := True;
 
+VectBundleQ[_SymPowBundle] := True;
+
 VectBundleQ[_TensPowBundle] := True;
 
 VectBundleQ[_TensProdBundle] := True;

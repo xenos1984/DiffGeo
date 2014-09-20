@@ -38,6 +38,7 @@ TotalSpace::usage = "";
 TangentBundle::usage = "";
 CotangentBundle::usage = "";
 ExtPowBundle::usage = "";
+SymPowBundle::usage = "";
 TensPowBundle::usage = "";
 TensProdBundle::usage = "";
 
@@ -81,6 +82,7 @@ Get["DiffGeo`TotalSpace`"];
 Get["DiffGeo`TangentBundle`"];
 Get["DiffGeo`CotangentBundle`"];
 Get["DiffGeo`ExtPowBundle`"];
+Get["DiffGeo`SymPowBundle`"];
 Get["DiffGeo`TensPowBundle`"];
 Get["DiffGeo`IntProd`"];
 Get["DiffGeo`ExtProd`"];

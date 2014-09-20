@@ -7,6 +7,8 @@ BaseSpace[x_CotangentBundle] := First[x];
 
 BaseSpace[x_ExtPowBundle] := BaseSpace[First[x]];
 
+BaseSpace[x_SymPowBundle] := BaseSpace[First[x]];
+
 BaseSpace[x_TensPowBundle] := BaseSpace[First[x]];
 
 End[];

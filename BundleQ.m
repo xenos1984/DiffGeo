@@ -7,6 +7,8 @@ BundleQ[_CotangentBundle] := True;
 
 BundleQ[_ExtPowBundle] := True;
 
+BundleQ[_SymPowBundle] := True;
+
 BundleQ[_TensPowBundle] := True;
 
 BundleQ[_TensProdBundle] := True;
