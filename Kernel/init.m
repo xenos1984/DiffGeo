@@ -66,6 +66,7 @@ Get["DiffGeo`BundleQ`"];
 Get["DiffGeo`VectBundleQ`"];
 Get["DiffGeo`MappingQ`"];
 Get["DiffGeo`SectionQ`"];
+Get["DiffGeo`TensQ`"];
 Get["DiffGeo`VectQ`"];
 Get["DiffGeo`FormQ`"];
 Get["DiffGeo`ConstQ`"];

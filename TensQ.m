@@ -1,27 +1,17 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-TensQ[LieBr[_, _]] := True;
+tbundleq[_TangentBundle] := True;
 
-TensQ[LieDer[__]] := True;
+tbundleq[_CotangentBundle] := True;
 
-TensQ[ExtDer[_]] := True;
+tbundleq[x_TensProdBundle /; And @@ (tbundleq /@ (List @@ x))] := True;
 
-TensQ[ExtProd[__]] := True;
+tbundleq[x_TensPowBundle /; tbundleq[First[x]]] := True;
 
-TensQ[IntProd[__]] := True;
+tbundleq[x_ExtPowBundle /; tbundleq[First[x]]] := True;
 
-TensQ[TensProd[__]] := True;
-
-TensQ[x_Plus] := And[And @@ (TensQ /@ (List @@ x)), Length[Union[Domain /@ (List @@ x)]] === 1, Length[Union[Codomain /@ (List @@ x)]] === 1];
-
-TensQ[Times[x_ /; ScalQ[x], y_ /; TensQ[y]]] := True;
-
-TensQ[x_Symbol] := True;
-
-TensQ[x_ /; NumericQ[x]] := True;
-
-TensQ[x_[y___ /; And @@ (ScalQ /@ {a})]] /; MemberQ[Attributes[x], NumericFunction] := True;
+TensQ[x_] := Or[ScalQ[x], And[SectionQ[x], tbundleq[Bundle[x]]]];
 
 End[];
 EndPackage[];
