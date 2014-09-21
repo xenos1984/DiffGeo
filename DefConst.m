@@ -1,7 +1,14 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-DefConst[x_] := (ConstQ[x] ^= True; x);
+DefConst[x_] := (
+	TensQ[x] ^= False;
+	VectQ[x] ^= False;
+	FormQ[x] ^= False;
+	ScalQ[x] ^= False;
+	ConstQ[x] ^= True;
+	x
+);
 
 End[];
 EndPackage[];
