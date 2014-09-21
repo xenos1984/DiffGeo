@@ -5,7 +5,7 @@ Format[ExtProd[x__]] := Infix[{x}, "\[Wedge]"];
 
 ExtProd::noform = "ExtProd works only on differential forms, `1` are not differential forms.";
 
-ExtProd[] := Throw[Message[General::argm, ExtProd, 0, 1]];
+ExtProd[] := Throw[Message[ExtProd::argm, ExtProd, 0, 1]];
 
 ExtProd[x__ /; Nand @@ (FormQ /@ {x})] := Throw[Message[ExtProd::noform, Select[{x}, Not[FormQ[#]]&]]];
 

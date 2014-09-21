@@ -7,6 +7,8 @@ LieDer::notens = "The first argument of LieDer must be a tensor, `1` is not a te
 
 LieDer::novect = "All but the first argument of LieDer must be vector fields, `1` are not vector fields.";
 
+LieDer[] := Throw[Message[LieDer::argm, LieDer, 0, 1]];
+
 LieDer[x_ /; Not[TensQ[x]], y__] := Throw[Message[LieDer::notens, x]];
 
 LieDer[x_, y__ /; Nand @@ (VectQ /@ {y})] := Throw[Message[LieDer::novect, Select[{y}, Not[VectQ[#]]&]]];

@@ -5,11 +5,11 @@ Format[LieBr[x_, y_]] := "\[Null]"[x, y];
 
 LieBr::novect = "LieBr works only on vector fields, `1` is not a vector field.";
 
-LieBr[] := Throw[Message[General::argrx, LieBr, 0, 2]];
+LieBr[] := Throw[Message[LieBr::argrx, LieBr, 0, 2]];
 
-LieBr[_] := Throw[Message[General::argr, LieBr, 2]];
+LieBr[_] := Throw[Message[LieBr::argr, LieBr, 2]];
 
-LieBr[_, _, x__] := Throw[Message[General::argrx, LieBr, Length[{x}] + 2, 2]];
+LieBr[_, _, x__] := Throw[Message[LieBr::argrx, LieBr, Length[{x}] + 2, 2]];
 
 LieBr[x_ /; Not[VectQ[x]], y_] := Throw[Message[LieBr::novect, x]];
 

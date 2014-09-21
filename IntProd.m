@@ -7,6 +7,8 @@ IntProd::noform = "The first argument of IntProd must be a differential form, `1
 
 IntProd::novect = "All but the first argument of IntProd must be vector fields, `1` are not vector fields.";
 
+IntProd[] := Throw[Message[IntProd::argm, IntProd, 0, 1]];
+
 IntProd[x_ /; Not[FormQ[x]], y___] := Throw[Message[IntProd::noform, x]];
 
 IntProd[x_, y__ /; Nand @@ (VectQ /@ {y})] := Throw[Message[IntProd::novect, Select[{y}, Not[VectQ[#]]&]]];
