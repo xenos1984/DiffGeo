@@ -11,5 +11,7 @@ TensPowBundle[b_ /; Not[VectBundleQ[b]], n_] := Message[DiffGeo::novb, TensPowBu
 
 TensPowBundle[b_ /; VectBundleQ[b], 1] := b;
 
+TensPowBundle[b_TensPowBundle, n] := TensPowBundle[b[[1]], n * b[[2]]];
+
 End[];
 EndPackage[];

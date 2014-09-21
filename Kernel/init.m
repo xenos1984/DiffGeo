@@ -84,6 +84,7 @@ Get["DiffGeo`CotangentBundle`"];
 Get["DiffGeo`ExtPowBundle`"];
 Get["DiffGeo`SymPowBundle`"];
 Get["DiffGeo`TensPowBundle`"];
+Get["DiffGeo`TensProdBundle`"];
 Get["DiffGeo`TensProd`"];
 Get["DiffGeo`IntProd`"];
 Get["DiffGeo`ExtProd`"];

@@ -23,5 +23,7 @@ Format[TotalSpace[TensPowBundle[TangentBundle[m_], n_]]] := Prefix[{m}, Prefix[{
 
 Format[TotalSpace[TensPowBundle[CotangentBundle[m_], n_]]] := Prefix[{m}, Prefix[{Superscript["\[DoubleStruckCapitalT]", "*"]}, Superscript["\[CircleTimes]", n]]];
 
+Format[TotalSpace[TensProdBundle[x__]]] := Infix[TotalSpace /@ {x}, "\[CircleTimes]"];
+
 End[];
 EndPackage[];
