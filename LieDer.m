@@ -48,5 +48,7 @@ LieDer[x_ /; ScalQ[x], y_ /; VectQ[y], z___ /; And @@ (VectQ /@ {z})] := LieDer[
 
 LieDer[x_ /; VectQ[x], y_ /; VectQ[y], z___ /; And @@ (VectQ /@ {z})] := LieDer[LieBr[y, x], z];
 
+LieDer[x_ /; FormQ[x], Times[f_ /; ScalQ[f], y_ /; VectQ[y]], z___ /; And @@ (VectQ /@ {z})] := LieDer[f * LieDer[x, y] + ExtProd[ExtDer[f], IntProd[x, y]], z];
+
 End[];
 EndPackage[];

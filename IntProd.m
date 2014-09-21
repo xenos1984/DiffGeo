@@ -1,7 +1,7 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-Format[IntProd[x_, y__]] := Fold[Prefix[{#1}, Subscript["\[Iota]", #2]]&, x, {y}];
+Format[IntProd[x_, y__]] := Fold[Prefix[{#1}, Subscript["\[ScriptI]", #2]]&, x, {y}];
 
 IntProd::noform = "The first argument of IntProd must be a differential form, `1` is not a differential form.";
 
@@ -35,7 +35,7 @@ IntProd[a_ /; FormQ[a], b___ /; And @@ (VectQ /@ {b}), 0, c___ /; And @@ (VectQ 
 
 IntProd[x_IntProd, y__ /; And @@ (VectQ /@ {y})] := IntProd[Sequence @@ x, y];
 
-IntProd[x_ExtProd, y__ /; And @@ (VectQ /@ {y})] := Module[{i, j, a, b, c, l, f, r, x2, y2},
+IntProd[x_ExtProd, y__ /; And @@ (VectQ /@ {y})] := Module[{i, a, b, c, l, f, r, x2, y2},
 	x2 = List @@ x;
 	y2 = {y};
 	l = Length[x2];
@@ -49,7 +49,7 @@ IntProd[x_ExtProd, y__ /; And @@ (VectQ /@ {y})] := Module[{i, j, a, b, c, l, f,
 	{i, l}]
 ];
 
-IntProd[x_ /; ScalQ[x], y__ /; And @@ (VectQ /@ {0})] := 0;
+IntProd[x_ /; ScalQ[x], y__ /; And @@ (VectQ /@ {y})] := 0;
 
 End[];
 EndPackage[];

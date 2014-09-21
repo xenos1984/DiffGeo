@@ -1,7 +1,7 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-Format[ExtDer[x_]] := Prefix[{x}, "d"];
+Format[ExtDer[x_]] := Prefix[{x}, "\[DifferentialD]"];
 
 ExtDer::noform = "ExtDer works only on differential forms, `1` is not a differential form.";
 
@@ -13,7 +13,7 @@ ExtDer[Times[x_ /; ConstQ[x], y_ /; FormQ[y]]] := x * ExtDer[y];
 
 ExtDer[Times[x_ /; ScalQ[x], y_ /; FormQ[y]]] := ExtProd[ExtDer[x], y] + x * ExtDer[y];
 
-ExtDer[x_ExtProd] := Module[{i, j, a, b, c, l, x2},
+ExtDer[x_ExtProd] := Module[{i, a, b, c, l, x2},
 	x2 = List @@ x;
 	l = Length[x];
 	Sum[
