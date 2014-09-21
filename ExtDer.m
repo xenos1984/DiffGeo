@@ -7,7 +7,7 @@ ExtDer::noform = "ExtDer works only on differential forms, `1` is not a differen
 
 ExtDer[] := Throw[Message[ExtDer::argx, ExtDer, 0]];
 
-ExtDer[_, x__] := Throw[Message[ExtDer::argx, ExtDer, Length[{x}] + 1,]];
+ExtDer[_, x__] := Throw[Message[ExtDer::argx, ExtDer, Length[{x}] + 1]];
 
 ExtDer[x_ /; Not[FormQ[x]]] := Throw[Message[ExtDer::noform, x]];
 

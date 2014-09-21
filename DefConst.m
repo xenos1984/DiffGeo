@@ -1,7 +1,7 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-DefConst[x_] := (
+DefConst[x_Symbol] := (
 	TensQ[x] ^= False;
 	VectQ[x] ^= False;
 	FormQ[x] ^= False;
