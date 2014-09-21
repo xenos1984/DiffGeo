@@ -1,7 +1,7 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-DefForm[x_, m_, p_] := (
+DefForm[x_, p_, m_] := (
 	VectQ[x] ^= False;
 	TensQ[x] ^= True;
 	FormQ[x] ^= True;
