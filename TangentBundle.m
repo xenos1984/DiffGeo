@@ -5,7 +5,7 @@ Format[TangentBundle[x_]] := Infix[{Prefix[{x}, "\[DoubleStruckCapitalT]"], x}, 
 
 TangentBundle::nomf = "";
 
-TangentBundle[x_ /; Not[ManifoldQ[x]]] := Message[TangentBundle::nomf, x];
+TangentBundle[x_ /; Not[ManifoldQ[x]]] := Throw[Message[TangentBundle::nomf, x]];
 
 End[];
 EndPackage[];

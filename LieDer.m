@@ -7,11 +7,11 @@ LieDer::notens = "The first argument of LieDer must be a tensor, `1` is not a te
 
 LieDer::novect = "All but the first argument of LieDer must be vector fields, `1` are not vector fields.";
 
-LieDer[x_ /; Not[TensQ[x]], y__] := Message[LieDer::notens, x];
+LieDer[x_ /; Not[TensQ[x]], y__] := Throw[Message[LieDer::notens, x]];
 
-LieDer[x_, y__ /; Nand @@ (VectQ /@ {y})] := Message[LieDer::novect, Select[{y}, Not[VectQ[#]]&]];
+LieDer[x_, y__ /; Nand @@ (VectQ /@ {y})] := Throw[Message[LieDer::novect, Select[{y}, Not[VectQ[#]]&]]];
 
-LieDer[x_ /; TensQ[x], y__ /; And @@ (VectQ /@ {y})] /; (Length[Union[Domain /@ {x, y}]] > 1) := Message[DiffGeo::diffmf, LieDer];
+LieDer[x_ /; TensQ[x], y__ /; And @@ (VectQ /@ {y})] /; (Length[Union[Domain /@ {x, y}]] > 1) := Throw[Message[DiffGeo::diffmf, LieDer]];
 
 LieDer[x_ /; TensQ[x]] := x;
 

@@ -5,7 +5,7 @@ Format[CotangentBundle[x_]] := Infix[{Prefix[{x}, "\!\(\[DoubleStruckCapitalT]\^
 
 CotangentBundle::nomf = "";
 
-CotangentBundle[x_ /; Not[ManifoldQ[x]]] := Message[CotangentBundle::nomf, x];
+CotangentBundle[x_ /; Not[ManifoldQ[x]]] := Throw[Message[CotangentBundle::nomf, x]];
 
 End[];
 EndPackage[];

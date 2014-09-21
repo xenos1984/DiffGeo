@@ -5,9 +5,9 @@ Format[TensProdBundle[x__]] := Infix[{Infix[TotalSpace /@ {x}, "\[CircleTimes]"]
 
 TensProdBundle::diffbs = "The given vectorbundles have different base spaces.";
 
-TensProdBundle[x__ /; Nand @@ (VectBundleQ /@ {x})] := Message[DiffGeo::novb, TensProdBundle, Select[{x}, Not[VectBundleQ[#]]&]];
+TensProdBundle[x__ /; Nand @@ (VectBundleQ /@ {x})] := Throw[Message[DiffGeo::novb, TensProdBundle, Select[{x}, Not[VectBundleQ[#]]&]]];
 
-TensProdBundle[x__ /; And[And @@ (VectBundleQ /@ {x}), Length[Union[BaseSpace /@ {x}]] > 1]] := Message[TensProdBundle::diffbs];
+TensProdBundle[x__ /; And[And @@ (VectBundleQ /@ {x}), Length[Union[BaseSpace /@ {x}]] > 1]] := Throw[Message[TensProdBundle::diffbs]];
 
 TensProdBundle[x_ /; VectBundleQ[x]] := x;
 

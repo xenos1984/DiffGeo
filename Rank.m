@@ -15,9 +15,9 @@ brank[x_TensProdBundle] := Plus @@ (brank /@ (List @@ x));
 
 Rank::notens = "`1` is not a tensor field.";
 
-Rank[x_ /; Not[FormQ[x]]] := Message[Rank::notens, x];
+Rank[x_ /; Not[TensQ[x]]] := Throw[Message[Rank::notens, x]];
 
-Rank[x_ /; And[FormQ[x], Not[ScalQ[x]]]] := brank[Bundle[x]];
+Rank[x_ /; And[TensQ[x], Not[ScalQ[x]]]] := brank[Bundle[x]];
 
 Rank[x_ /; ScalQ[x]] := {0, 0};
 

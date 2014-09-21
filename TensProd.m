@@ -5,9 +5,9 @@ Format[TensProd[x__]] := Infix[{x}, "\[CircleTimes]"];
 
 TensProd::notens = "TensProd works only on tensor fields, `1` are not tensor fields.";
 
-TensProd[x__ /; Nand @@ (TensQ /@ {x})] := Message[TensProd::notens, Select[{x}, Not[TensQ[#]]&]];
+TensProd[x__ /; Nand @@ (TensQ /@ {x})] := Throw[Message[TensProd::notens, Select[{x}, Not[TensQ[#]]&]]];
 
-TensProd[x__ /; And[And @@ (TensQ /@ {x}), Length[Union[Domain /@ {x}]] > 1]] := Message[DiffGeo::diffmf, TensProd];
+TensProd[x__ /; And[And @@ (TensQ /@ {x}), Length[Union[Domain /@ {x}]] > 1]] := Throw[Message[DiffGeo::diffmf, TensProd]];
 
 TensProd[x_ /; TensQ[x]] := x;
 

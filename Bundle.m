@@ -3,7 +3,7 @@ Begin["`Private`"];
 
 Bundle::nosect = "Bundle works only on sections, `1` is not a section.";
 
-Bundle[x_ /; Not[SectionQ[x]]] := Message[Bundle::nosect, x];
+Bundle[x_ /; Not[SectionQ[x]]] := Throw[Message[Bundle::nosect, x]];
 
 Bundle[Times[x_ /; ConstQ[x], y_ /; And[SectionQ[y], VectBundleQ[Bundle[y]]]]] := Bundle[y];
 

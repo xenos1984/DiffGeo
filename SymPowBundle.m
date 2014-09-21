@@ -7,7 +7,7 @@ Format[SymPowBundle[TangentBundle[m_], n_]] := Infix[{Prefix[{m}, Prefix[{"\[Dou
 
 Format[SymPowBundle[CotangentBundle[m_], n_]] := Infix[{Prefix[{m}, Prefix[{Superscript["\[DoubleStruckCapitalT]", "*"]}, Superscript["\[CircleDot]", n]]], m}, "\[RightArrow]"];
 
-SymPowBundle[b_ /; Not[VectBundleQ[b]], n_] := Message[DiffGeo::novb, SymPowBundle, b];
+SymPowBundle[b_ /; Not[VectBundleQ[b]], n_] := Throw[Message[DiffGeo::novb, SymPowBundle, b]];
 
 SymPowBundle[b_ /; VectBundleQ[b], 1] := b;
 

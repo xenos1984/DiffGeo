@@ -7,7 +7,7 @@ Format[TensPowBundle[TangentBundle[m_], n_]] := Infix[{Prefix[{m}, Prefix[{"\[Do
 
 Format[TensPowBundle[CotangentBundle[m_], n_]] := Infix[{Prefix[{m}, Prefix[{Superscript["\[DoubleStruckCapitalT]", "*"]}, Superscript["\[CircleTimes]", n]]], m}, "\[RightArrow]"];
 
-TensPowBundle[b_ /; Not[VectBundleQ[b]], n_] := Message[DiffGeo::novb, TensPowBundle, b];
+TensPowBundle[b_ /; Not[VectBundleQ[b]], n_] := Throw[Message[DiffGeo::novb, TensPowBundle, b]];
 
 TensPowBundle[b_ /; VectBundleQ[b], 1] := b;
 

@@ -7,11 +7,11 @@ IntProd::noform = "The first argument of IntProd must be a differential form, `1
 
 IntProd::novect = "All but the first argument of IntProd must be vector fields, `1` are not vector fields.";
 
-IntProd[x_ /; Not[FormQ[x]], y___] := Message[IntProd::noform, x];
+IntProd[x_ /; Not[FormQ[x]], y___] := Throw[Message[IntProd::noform, x]];
 
-IntProd[x_, y__ /; Nand @@ (VectQ /@ {y})] := Message[IntProd::novect, Select[{y}, Not[VectQ[#]]&]];
+IntProd[x_, y__ /; Nand @@ (VectQ /@ {y})] := Throw[Message[IntProd::novect, Select[{y}, Not[VectQ[#]]&]]];
 
-IntProd[x_ /; FormQ[x], y__ /; And @@ (VectQ /@ {y})] /; (Length[Union[Domain /@ {x, y}]] > 1) := Message[DiffGeo::diffmf, IntProd];
+IntProd[x_ /; FormQ[x], y__ /; And @@ (VectQ /@ {y})] /; (Length[Union[Domain /@ {x, y}]] > 1) := Throw[Message[DiffGeo::diffmf, IntProd]];
 
 IntProd[x_ /; FormQ[x]] := x;
 

@@ -5,7 +5,7 @@ Format[ExtDer[x_]] := Prefix[{x}, "\[DifferentialD]"];
 
 ExtDer::noform = "ExtDer works only on differential forms, `1` is not a differential form.";
 
-ExtDer[x_ /; Not[FormQ[x]]] := Message[ExtDer::noform, x];
+ExtDer[x_ /; Not[FormQ[x]]] := Throw[Message[ExtDer::noform, x]];
 
 ExtDer[x_Plus /; FormQ[x]] := ExtDer /@ x;
 
