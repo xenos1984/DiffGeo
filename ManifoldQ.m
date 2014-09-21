@@ -1,9 +1,9 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-ManifoldQ[x_BaseSpace] := True;
+ManifoldQ[_BaseSpace] := True;
 
-ManifoldQ[x_TotalSpace] := True;
+ManifoldQ[_TotalSpace] := True;
 
 End[];
 EndPackage[];

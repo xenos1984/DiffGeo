@@ -11,29 +11,42 @@ LieDer[x_ /; Not[TensQ[x]], y__] := Message[LieDer::notens, x];
 
 LieDer[x_, y__ /; Nand @@ (VectQ /@ {y})] := Message[LieDer::novect, Select[{y}, Not[VectQ[#]]&]];
 
-LieDer[LieDer[x_, y__], z__/; And @@ (VectQ /@ {z})] := LieDer[x, y, z];
+LieDer[x_ /; TensQ[x], y__ /; And @@ (VectQ /@ {y})] /; (Length[Union[Domain /@ {x, y}]] > 1) := Message[DiffGeo::diffmf, LieDer];
 
 LieDer[x_ /; TensQ[x]] := x;
 
 LieDer[x_Plus /; TensQ[x], y__ /; And @@ (VectQ /@ {y})] := LieDer[#, y]& /@ x;
 
+LieDer[Times[x_ /; ConstQ[x], y_ /; TensQ[y]], z__ /; And @@ (VectQ /@ {z})] := x * LieDer[y, z];
+
 LieDer[Times[x_ /; ScalQ[x], y_ /; TensQ[y]], z__ /; And @@ (VectQ /@ {z})] := LieDer[x, z] * y + x * LieDer[y, z];
 
 LieDer[a_ /; TensQ[a], b___ /; And @@ (VectQ /@ {b}), c_Plus /; VectQ[c], d___ /; And @@ (VectQ /@ {d})] := LieDer[a, b, #, d]& /@ c;
 
-LieDer[fkt:(ExtProd|TensProd)[x__], y__ /; And @@ (VectQ /@ {y})] := Module[{i, j, a, b, c, l, f, r},
-	l = Length[{x}];
-	f = First[{y}];
-	r = Drop[{y}, 1];
+LieDer[a_ /; TensQ[a], b___ /; And @@ (VectQ /@ {b}), Times[c_ /; ConstQ[c], d_ /; VectQ[d]], e___ /; And @@ (VectQ /@ {e})] := c * LieDer[a, b, d, e];
+
+LieDer[a_ /; TensQ[a], b___ /; And @@ (VectQ /@ {b}), 0, c___ /; And @@ (VectQ /@ {c})] := 0;
+
+LieDer[x_LieDer, y__ /; And @@ (VectQ /@ {y})] := LieDer[Sequence @@ x, y];
+
+LieDer[x:(_ExtProd|_TensProd), y__ /; And @@ (VectQ /@ {y})] := Module[{i, j, a, b, c, l, f, r, fkt, x2, y2},
+	fkt = Head[x];
+	x2 = List @@ x;
+	y2 = {y};
+	l = Length[x2];
+	f = First[y2];
+	r = Drop[y2, 1];
 	Sum[
-		a = Take[{x}, i - 1];
-		b = {x}[[i]];
-		c = Drop[{x}, i];
+		a = Take[x2, i - 1];
+		b = x2[[i]];
+		c = Drop[x2, i];
 		LieDer[fkt @@ Join[a, {LieDer[b, f]}, c], Sequence @@ r],
 	{i, l}]
 ];
 
-LieDer[x_ /; ScalQ[x], y__ /; And @@ (VectQ /@ {y})] := LieDer[IntProd[ExtDer[x], First[{y}]], Sequence @@ Drop[{y}, 1]];
+LieDer[x_ /; ScalQ[x], y_ /; VectQ[y], z___ /; And @@ (VectQ /@ {z})] := LieDer[IntProd[ExtDer[x], y], z];
+
+LieDer[x_ /; VectQ[x], y_ /; VectQ[y], z___ /; And @@ (VectQ /@ {z})] := LieDer[LieBr[y, x], z];
 
 End[];
 EndPackage[];

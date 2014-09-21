@@ -26,5 +26,7 @@ ExtDer[x_ExtProd] := Module[{i, j, a, b, c, l, x2},
 
 ExtDer[x_ExtDer] := 0;
 
+ExtDer[x_ /; ConstQ[x]] := 0;
+
 End[];
 EndPackage[];

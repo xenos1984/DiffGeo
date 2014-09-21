@@ -1,7 +1,7 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-ScalQ[x_] := And[MappingQ[x], Codomain[x] === Reals];
+ScalQ[x_] := Or[x === 0, And[MappingQ[x], Codomain[x] === Reals]];
 
 End[];
 EndPackage[];

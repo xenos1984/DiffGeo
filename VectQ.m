@@ -1,7 +1,7 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-VectQ[x_] := And[SectionQ[x], Bundle[x] === TangentBundle[Domain[x]]];
+VectQ[x_] := Or[x === 0, And[SectionQ[x], Bundle[x] === TangentBundle[Domain[x]]]];
 
 End[];
 EndPackage[];

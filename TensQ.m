@@ -13,7 +13,7 @@ tbundleq[x_ExtPowBundle /; tbundleq[First[x]]] := True;
 
 tbundleq[x_SymPowBundle /; tbundleq[First[x]]] := True;
 
-TensQ[x_] := Or[ScalQ[x], And[SectionQ[x], tbundleq[Bundle[x]]]];
+TensQ[x_] := Or[x === 0, ScalQ[x], And[SectionQ[x], tbundleq[Bundle[x]]]];
 
 End[];
 EndPackage[];

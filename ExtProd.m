@@ -5,11 +5,11 @@ Format[ExtProd[x__]] := Infix[{x}, "\[Wedge]"];
 
 ExtProd::noform = "ExtProd works only on differential forms, `1` are not differential forms.";
 
-ExtProd[] := Message[General::argm, LieBr, 0, 1];
+ExtProd[] := Message[General::argm, ExtProd, 0, 1];
 
 ExtProd[x__ /; Nand @@ (FormQ /@ {x})] := Message[ExtProd::noform, Select[{x}, Not[FormQ[#]]&]];
 
-ExtProd[x__ /; And[And @@ (FormQ /@ {x}), Length[Union[Domain /@ {x}]] =!= 1]] := Message[DiffGeo::diffmf, ExtProd];
+ExtProd[x__ /; And[And @@ (FormQ /@ {x}), Length[Union[Domain /@ {x}]] > 1]] := Message[DiffGeo::diffmf, ExtProd];
 
 ExtProd[x_ /; FormQ[x]] := x;
 

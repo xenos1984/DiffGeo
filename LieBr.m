@@ -15,11 +15,15 @@ LieBr[x_ /; Not[VectQ[x]], y_] := Message[LieBr::novect, x];
 
 LieBr[x_, y_ /; Not[VectQ[y]]] := Message[LieBr::novect, y];
 
-LieBr[x_ /; VectQ[x], y_ /; VectQ[y]] /; (Domain[x] =!= Domain[y]) := Message[DiffGeo::diffmf, LieBr];
+LieBr[x_ /; VectQ[x], y_ /; VectQ[y]] /; (Length[Union[Domain /@ {x, y}]] > 1) := Message[DiffGeo::diffmf, LieBr];
 
 LieBr[x_ /; VectQ[x], y_ /; VectQ[y]] /; Not[OrderedQ[{x, y}]] := -LieBr[y, x];
 
 LieBr[x_, x_] /; VectQ[x] := 0;
+
+LieBr[x_ /; VectQ[x], 0] := 0;
+
+LieBr[0, x_ /; VectQ[x]] := 0;
 
 LieBr[Times[x_ /; ConstQ[x], y_ /; VectQ[y]], z_ /; VectQ[z]] := x * LieBr[y, z];
 
