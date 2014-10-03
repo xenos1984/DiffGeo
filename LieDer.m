@@ -31,7 +31,7 @@ LieDer[a_ /; TensQ[a], b___ /; And @@ (VectQ /@ {b}), 0, c___ /; And @@ (VectQ /
 
 LieDer[x_LieDer, y__ /; And @@ (VectQ /@ {y})] := LieDer[Sequence @@ x, y];
 
-LieDer[x:(_ExtProd|_TensProd), y__ /; And @@ (VectQ /@ {y})] := Module[{i, j, a, b, c, l, f, r, fkt, x2, y2},
+LieDer[x:(_ExtProd|_TensProd), y__ /; And @@ (VectQ /@ {y})] := Module[{i, a, b, c, l, f, r, fkt, x2, y2},
 	fkt = Head[x];
 	x2 = List @@ x;
 	y2 = {y};

@@ -43,6 +43,7 @@ TensPowBundle::usage = "";
 TensProdBundle::usage = "";
 
 Rank::usage = "";
+Dim::usage = "";
 
 LieBr::usage = "LieBr[X, Y] calculates the Lie bracket \!\([X, Y]\) of two vector fields \!\(X, Y\).";
 LieDer::usage = "LieDer[T, X, \[Ellipsis]] calculates the Lie derivative \!\(\[ScriptCapitalL]\_\(\[Ellipsis]\) \[ScriptCapitalL]\_X T\) of the Tensor \!\(T\) with respect to the vector fields \!\(X, \[Ellipsis]\).";
@@ -74,6 +75,7 @@ Get["DiffGeo`FormQ`"];
 Get["DiffGeo`ConstQ`"];
 Get["DiffGeo`ScalQ`"];
 Get["DiffGeo`Rank`"];
+Get["DiffGeo`Dim`"];
 Get["DiffGeo`Bundle`"];
 Get["DiffGeo`Domain`"];
 Get["DiffGeo`Codomain`"];
