@@ -6,11 +6,11 @@
 
 BeginPackage["DiffGeo`"];
 
-DefManifold::usage = "";
+DefManifold::usage = "DefManifold[M] declares a manifold M.";
 DefBundle::usage = "";
-DefMapping::usage = "";
-DefSection::usage = "";
-DefConst::usage = "";
+DefMapping::usage = "DefMapping[f, M, N] declares a mapping f: M \[RightArrow] N with domain M and codomain N.";
+DefSection::usage = "DefSection[f, B] declares a section f of a fiber bundle B.";
+DefConst::usage = "DefConst[c] declares a constant c.";
 
 DefTens::usage = "";
 DefVect::usage = "";
@@ -29,14 +29,14 @@ FormQ::usage = "";
 ScalQ::usage = "";
 ConstQ::usage = "";
 
-Bundle::usage = "";
-Domain::usage = "";
-Codomain::usage = "";
-BaseSpace::usage = "";
-TotalSpace::usage = "";
+Bundle::usage = "Bundle[f] returns the bundle of a section f.";
+Domain::usage = "Domain[f] returns the domain M of a mapping f: M \[RightArrow] N.";
+Codomain::usage = "Codomain[f] returns the codomain N of a mapping f: M \[RightArrow] N.";
+BaseSpace::usage = "BaseSpace[B] returns the base space of a bundle B.";
+TotalSpace::usage = "TotalSpace[B] returns the total space of a bundle B.";
 
-TangentBundle::usage = "";
-CotangentBundle::usage = "";
+TangentBundle::usage = "TangentBundle[M] returns the tangent bundle \[DoubleStruckCapitalT]M of a manifold M.";
+CotangentBundle::usage = "CotangentBundle[M] returns the cotangent bundle \!\(\[DoubleStruckCapitalT]\^\(*\)M\) of a manifold M.";
 ExtPowBundle::usage = "";
 SymPowBundle::usage = "";
 TensPowBundle::usage = "";
