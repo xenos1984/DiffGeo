@@ -3,6 +3,7 @@ Objects and their properties
 Bundle -> Base space, total space, fiber space, bundle map
 	Vector bundle
 	Principal bundle -> Structure group?
+		Associated bundles?
 		Frame bundle
 Manifold -> Tangent bundle, cotangent bundle
 Mapping -> Domain, codomain
@@ -14,7 +15,7 @@ Mapping -> Domain, codomain
 				Volume form -> Divergence
 			Metric -> Inverse metric, musical isomorphisms, Hodge star, gradient, Levi-Civita connection, volume form
 		Frame, Coframe
-		Connection
+		Connection (Ehresmann, Koszul, Affine...)
 VectorSpace?
 Group?
 Field?
@@ -45,6 +46,17 @@ Standard objects:
 		TensProdBundle[b1, b2, ...]
 		TensPowBundle[b, n]
 		ExtPowBundle[b, n]
+	Bundles and manifolds
+		ProductManifold[m, n, ...]
+		TrivialBundle[b, f]
+		TrivialLineBundle[m]
+		ProjectionMap[m * n * ..., i]
+	Jet manifolds and bundles
+		JetManifold[m, n, r]
+		JetManifold[b, r]
+		JetBundle[b, r]
+		JetBundle[b, r, k]
+		JetProlongation[s, r]
 
 Object information:
 
