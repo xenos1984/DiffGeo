@@ -1,7 +1,9 @@
 BeginPackage["DiffGeo`"];
 Begin["`Private`"];
 
-Format[IntProd[x_, y__]] := Fold[Prefix[{#1}, Subscript["\[ScriptI]", #2]]&, x, {y}];
+$IntProdAsHook = False;
+
+Format[IntProd[x_, y__]] := If[$IntProdAsHook, Infix[Reverse[{x, y}], "\:2a3c"], Fold[Prefix[{#1}, Subscript["\[ScriptI]", #2]]&, x, {y}]];
 
 IntProd::noform = "The first argument of IntProd must be a differential form, `1` is not a differential form.";
 

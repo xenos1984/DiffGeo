@@ -52,6 +52,8 @@ ExtProd::usage = "ExtProd[\[Sigma], \[Omega], \[Ellipsis]] calculates the exteri
 IntProd::usage = "IntProd[\[Omega], X, \[Ellipsis]] calculates the interior product \!\(\[Iota]\_\(\[Ellipsis]\) \[Iota]\_X \[Omega]\) of a differential form \!\(\[Omega]\) and vector fields \!\(X, \[Ellipsis]\).";
 TensProd::usage = "TensProd[S, T, \[Ellipsis]] calculates the tensor product \!\(S \[CircleTimes] T \[CircleTimes] \[Ellipsis]\) of tensors \!\(S, T, \[Ellipsis]\).";
 
+$IntProdAsHook::usage = "Set $IntProdAsHook to true to display interior products using the hook (\:2a3c) notation, otherwise \[ScriptI] is used.";
+
 DiffGeo::diffmf = "Arguments of `1` are not defined on the same manifold.";
 DiffGeo::novb = "`1` works only on vector bundles, `2` is not a vector bundle.";
 
